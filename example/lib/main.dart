@@ -43,6 +43,12 @@ class _MyHomePageState extends State<MyHomePage> {
     remoteShutterPlugin.addListener(_remoteStutterPressed);
   }
 
+  @override
+  void dispose() {
+    remoteShutterPlugin.removeListener(_remoteStutterPressed);
+    super.dispose();
+  }
+
   void _remoteStutterPressed(int deviceId) {
     setState(() => _counter++);
   }
